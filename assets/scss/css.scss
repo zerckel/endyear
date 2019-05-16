@@ -1,0 +1,77 @@
+@import "variables";
+@font-face {
+  font-family: $typo_content;
+  src: url("../typo/mmrtext.ttf");
+}
+@font-face {
+  font-family: $typo_title;
+  src: url("../typo/Palatino Linotype.ttf");
+}
+body{
+  margin: 0;
+  font-family:$typo_title,$typo_content,sans-serif ;
+}
+
+// header //
+header{
+  top: 0;
+  width: 100vw;
+  background-color:black;
+}
+
+//footer//
+footer{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  color: white;
+  background-color: black;
+
+  .title{
+    top: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    font-size: 2.5em;
+    padding-bottom: 1vh;
+    font-family: $typo_title;
+  }
+  .info{
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    padding-bottom: 3vh;
+    font-size: 2em;
+
+    .case{
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 2vh;
+
+
+    }
+    .schedule{
+      border-right: solid 1px white;
+    }
+    .contact{
+      border-left: solid 1px white;
+      u{
+        text-align: center;
+        font-size: 1.5em;
+      }
+      span{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+  }
+}
+a{
+  text-decoration: none;
+  color: white;
+  text-underline: none;
+}
