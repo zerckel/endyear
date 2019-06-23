@@ -7,7 +7,7 @@ setlocale(LC_ALL, "fr_FR");
 function db(){
 
 try{
-    $db = new PDO('mysql:host=localhost;dbname=endyear;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    $db = new PDO('mysql:host=localhost;port=3307;dbname=project;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
 catch (Exception $exception)
 {

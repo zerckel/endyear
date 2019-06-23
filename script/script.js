@@ -2,7 +2,6 @@
 
 document.addEventListener("click", function (e) {
     let event = e.composedPath()
-    console.log(event)
     let fog = document.querySelector('.fog')
     let burger = document.querySelector('.burger')
     let svg = document.getElementById('svg')
@@ -23,7 +22,19 @@ function closeModal(){
         shadow.classList.remove('zIndex-8')
         shadow.classList.add('zIndex-6')
         fog()
+        clearModal(modal)
     }
+
+
+}
+
+function clearModal(modal){
+
+    modal.querySelector('.title').innerHTML = ''
+    modal.querySelector('.date').innerHTML = '<b><u>Date :</u></b>'
+    modal.querySelector('.description').innerHTML = '<b><u>Description :</u></b>'
+    modal.querySelector('.place').innerHTML = '<b><u>Lieux :</u></b>'
+
 
 
 }
@@ -80,6 +91,18 @@ function addEvent(array, fctn) {
     }
 }
 
+//maps
+
+function maps(){
+    let name = this.dataset.name
+    let gmaps = document.getElementById('gmap_canvas')
+    let src = "https://maps.google.com/maps?q=saint-gratien%20" + name + "&t=&z=15&ie=UTF8&iwloc=&output=embed"
+    let url = encodeURI(src)
+    gmaps.setAttribute("src",url)
+    let map = document.querySelector('.mapOuter')
+    map.style.height = '55vh'
+}
+
 if (document.querySelector('.zIndex-5').dataset.name === 'accueil') {
     //slider
     let swiper = new Swiper('.swiper-container', {
@@ -109,10 +132,11 @@ if (document.querySelector('.zIndex-5').dataset.name === 'accueil') {
         let event = this.parentNode
         let title = event.childNodes['1'].innerText
         let date = event.dataset.date
+        let place = event.dataset.place
         let content = event.dataset.content
         let modal = document.querySelector('.modal')
 
-
+        modal.querySelector('.place').appendChild(document.createTextNode(place))
         modal.querySelector('.title').appendChild(document.createTextNode(title))
         modal.querySelector('.date').appendChild(document.createTextNode(date))
         modal.querySelector('.description').appendChild(document.createTextNode(content))
@@ -123,7 +147,6 @@ if (document.querySelector('.zIndex-5').dataset.name === 'accueil') {
         shadow.classList.remove('zIndex-6')
         shadow.classList.add('zIndex-8')
 
-
         fog()
     }
 
@@ -131,18 +154,6 @@ if (document.querySelector('.zIndex-5').dataset.name === 'accueil') {
     //service google maps
     let elem = document.querySelectorAll('a[data-name]')
     addEvent(elem, maps)
-
-    function maps(){
-       let name = this.dataset.name
-        let gmaps = document.getElementById('gmap_canvas')
-        let src = "https://maps.google.com/maps?q=saint-gratien%20" + name + "&t=&z=15&ie=UTF8&iwloc=&output=embed"
-        let url = encodeURI(src)
-        gmaps.setAttribute("src",url)
-        let map = document.querySelector('.mapOuter')
-        map.style.height = '55vh'
-    }
-
-
 
 }else if (document.querySelector('.zIndex-5').dataset.name === 'faq') {
     //faq

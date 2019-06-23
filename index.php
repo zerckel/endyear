@@ -27,6 +27,7 @@ $event = $query->fetchAll();
                 <div class="title padding">
                 </div>
                 <div class="date padding"><b><u>Date :</u></b></div>
+                <div class="place padding"><b><u>Lieux :</u></b><br/></div>
                 <div class="description padding"><b><u>Description :</u></b><br/></div>
             </div>
         </div>
@@ -35,7 +36,7 @@ $event = $query->fetchAll();
                 <?php foreach($event as $key => $value ): ?>
                 <div class="swiper-slide" data-hash="event1" style="background-repeat: no-repeat; background-size: cover; background-image: url('assets/img/<?php echo $value['pics']?>');">
                     <article>
-                        <div data-content="<?php echo $value['content'] ?>" data-date="<?php echo $value['date'] ?>" class="slider">
+                        <div data-place="<?php echo $value['place'] ?>" data-content="<?php echo $value['content'] ?>" data-date="<?php echo $value['date'] ?>" class="slider">
                             <h1>
                                 <?php echo $value['title'] ?>
                             </h1>
